@@ -1,0 +1,20 @@
+{
+  "checkout": {
+    "fullName": "John Doe",
+    "address": "BTM",
+    "city": "Pune",
+    "state": "Goa",
+    "postalCode": "12345",
+    "country": "India"
+  },
+  "payment": {
+    "fullName": "John Doe",
+    "cardNumber": "1234567890123456",
+    "expirationDate": "12/25",
+    "cvv": "123"
+  },
+    "login": {
+        "username": "bod@example.com", 
+        "password": "10203040"
+    }
+}
