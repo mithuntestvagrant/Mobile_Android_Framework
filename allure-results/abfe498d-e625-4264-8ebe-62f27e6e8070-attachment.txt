@@ -1,0 +1,1 @@
+unknown error: WebDriverError: Unable to resolve the launchable activity of 'com.google.android.apps.nexuslauncher'. Original error: No activity found when running "execute/sync" with method "POST"

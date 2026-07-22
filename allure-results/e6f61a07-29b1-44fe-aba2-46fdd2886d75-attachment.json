@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Displays all products of catalog\"]/android.view.ViewGroup[1]/android.widget.ImageView[@content-desc=\"Product Image\"]"
+}
