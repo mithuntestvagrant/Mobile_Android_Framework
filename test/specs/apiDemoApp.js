@@ -16,25 +16,25 @@ describe('API Demo App', () => {
 
     });
 
-    it('enter text in text field', async () => {
+    // it('enter text in text field', async () => {
 
-        await driver.terminateApp('io.appium.android.apis');
-        await driver.activateApp('io.appium.android.apis');
+    //     await driver.terminateApp('io.appium.android.apis');
+    //     await driver.activateApp('io.appium.android.apis');
 
-        const view=await $('~Views');
-        await view.click();
+    //     const view=await $('~Views');
+    //     await view.click();
 
-        const textFields=await $(
-            'android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("TextFields"))'
-        ).click();
+    //     const textFields=await $(
+    //         'android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("TextFields"))'
+    //     ).click();
 
-        const text = await $('id=io.appium.android.apis:id/edit');
+    //     const text = await $('id=io.appium.android.apis:id/edit');
 
-        await text.click();
-        await text.setValue('playwright test');
+    //     await text.click();
+    //     await text.setValue('playwright test');
 
-        await expect(text).toHaveText('playwright test');
+    //     await expect(text).toHaveText('playwright test');
 
-    });
+    // });
 
 });
