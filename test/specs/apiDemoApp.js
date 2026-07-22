@@ -5,7 +5,7 @@ describe('API Demo App', () => {
         const view=await $('~Views');
         await view.click();
 
-        const buttons=await $('~Buttons');
+        const buttons=await $('//android.widget.TextView[@content-desc="Buttons"]');
         await buttons.click();
 
         const toggle=await $('~Toggle');
