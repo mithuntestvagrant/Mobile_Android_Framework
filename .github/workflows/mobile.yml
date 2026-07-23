@@ -7,9 +7,11 @@ on:
 
 jobs:
   android-test:
+
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout Repository
         uses: actions/checkout@v4
 
@@ -29,7 +31,7 @@ jobs:
 
       - name: Install Appium
         run: |
-          npm install -g appium
+          npm install -g appium@2
           appium driver install uiautomator2
 
       - name: Start Emulator and Run Tests
@@ -37,8 +39,17 @@ jobs:
         with:
           api-level: 34
           arch: x86_64
-          profile: pixel
+          profile: Pixel_2
+          disable-animations: true
           script: |
             appium > appium.log 2>&1 &
-            sleep 30
+            sleep 10
+            adb devices
             npx wdio run wdio.conf.js --spec ./test/specs/apiDemoApp.js
+
+      - name: Upload Appium Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-log
+          path: appium.log

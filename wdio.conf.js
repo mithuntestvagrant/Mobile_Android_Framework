@@ -39,9 +39,9 @@ exports.config = {
             //app demo app using apk
 
             "platformName": "Android",
-    "appium:automationName": "UiAutomator2",
-    "appium:deviceName": "Android Emulator",
-    "appium:app": "./apps/ApiDemos-debug.apk"
+             "appium:automationName": "UiAutomator2",
+              "appium:deviceName": "Android Emulator",
+              "appium:app": "./apps/ApiDemos-debug.apk"
 
 
                     // amazon app
