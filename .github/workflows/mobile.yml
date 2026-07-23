@@ -43,7 +43,6 @@ jobs:
         with:
           api-level: 34
           arch: x86_64
-          profile: Pixel_2
           disable-animations: true
 
           script: |
@@ -59,7 +58,7 @@ jobs:
             npx wdio run wdio.conf.js --spec ./test/specs/apiDemoApp.js
 
 
-      # Upload Appium Logs if Test Fails
+      # Upload Appium Logs
       - name: Upload Appium Logs
         if: always()
         uses: actions/upload-artifact@v4
