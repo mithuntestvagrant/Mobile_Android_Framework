@@ -1,4 +1,4 @@
-name: Appium WebdriverIO API Demo Tests
+name: Appium WebdriverIO Tests
 
 on:
   push:
@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
       - name: Install Dependencies
         run: npm install
 
@@ -26,13 +32,13 @@ jobs:
           npm install -g appium
           appium driver install uiautomator2
 
-      - name: Start Emulator and Run Test
+      - name: Start Emulator and Run Tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 34
           arch: x86_64
           profile: pixel
           script: |
-            appium &
-            sleep 15
+            appium > appium.log 2>&1 &
+            sleep 30
             npx wdio run wdio.conf.js --spec ./test/specs/apiDemoApp.js
