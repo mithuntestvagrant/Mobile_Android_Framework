@@ -36,7 +36,7 @@ exports.config = {
             //    "appium:appActivity": ".ApiDemos"
 
 
-            //app demo app using apk
+            //app demo app using apk file
 
             "platformName": "Android",
              "appium:automationName": "UiAutomator2",
