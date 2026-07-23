@@ -29,11 +29,20 @@ exports.config = {
                 // api demo app
 
                     
-             "platformName": "Android",
-             "appium:automationName": "UiAutomator2",
-             "appium:deviceName": "Android Emulator",
-              "appium:appPackage": "io.appium.android.apis",
-               "appium:appActivity": ".ApiDemos"
+            //  "platformName": "Android",
+            //  "appium:automationName": "UiAutomator2",
+            //  "appium:deviceName": "Android Emulator",
+            //   "appium:appPackage": "io.appium.android.apis",
+            //    "appium:appActivity": ".ApiDemos"
+
+
+            //app demo app using apk
+
+            "platformName": "Android",
+    "appium:automationName": "UiAutomator2",
+    "appium:deviceName": "Android Emulator",
+    "appium:app": "./apps/ApiDemos-debug.apk"
+
 
                     // amazon app
 
