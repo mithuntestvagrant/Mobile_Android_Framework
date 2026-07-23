@@ -12,12 +12,12 @@ exports.config = {
     capabilities: [{
         
         // //sauce labs app
-            // "platformName": "Android",
-            // "appium:automationName": "UiAutomator2",
-            // "appium:deviceName": "Pixel 4",
-            // "appium:appPackage": "com.saucelabs.mydemoapp.android",
-            // "appium:appActivity": "com.saucelabs.mydemoapp.android.view.activities.MainActivity",
-            // "appium:noReset": true
+            "platformName": "Android",
+            "appium:automationName": "UiAutomator2",
+            "appium:deviceName": "Pixel 4",
+            "appium:appPackage": "com.saucelabs.mydemoapp.android",
+            "appium:appActivity": "com.saucelabs.mydemoapp.android.view.activities.MainActivity",
+            "appium:noReset": true
 
             // settings app
                 // "platformName": "Android",
@@ -29,11 +29,11 @@ exports.config = {
                 // api demo app
 
                     
-             "platformName": "Android",
-             "appium:automationName": "UiAutomator2",
-             "appium:deviceName": "Android Emulator",
-              "appium:appPackage": "io.appium.android.apis",
-               "appium:appActivity": ".ApiDemos"
+            //  "platformName": "Android",
+            //  "appium:automationName": "UiAutomator2",
+            //  "appium:deviceName": "Android Emulator",
+            //   "appium:appPackage": "io.appium.android.apis",
+            //    "appium:appActivity": ".ApiDemos"
 
                     // amazon app
 
