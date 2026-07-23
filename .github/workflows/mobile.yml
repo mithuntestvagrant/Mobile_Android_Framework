@@ -1,4 +1,4 @@
-name: Appium WebdriverIO Tests
+name: Appium WebdriverIO API Demo Tests
 
 on:
   push:
@@ -12,41 +12,54 @@ jobs:
 
     steps:
 
+      # Checkout Code
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+
+      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
 
+      # Install Project Dependencies
       - name: Install Dependencies
         run: npm install
 
+
+      # Install Appium and Android Driver
       - name: Install Appium
         run: |
-          npm install -g appium@2
+          npm install -g appium@3
           appium driver install uiautomator2
+          appium driver list --installed
 
-      - name: Start Emulator and Run Tests
+
+      # Start Android Emulator and Execute Test
+      - name: Start Emulator and Run Test
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 34
           arch: x86_64
           profile: Pixel_2
           disable-animations: true
+
           script: |
-            appium > appium.log 2>&1 &
-            sleep 10
+            echo "Checking Emulator"
             adb devices
+
+            echo "Starting Appium Server"
+            appium > appium.log 2>&1 &
+
+            sleep 15
+
+            echo "Running WebdriverIO Test"
             npx wdio run wdio.conf.js --spec ./test/specs/apiDemoApp.js
 
+
+      # Upload Appium Logs if Test Fails
       - name: Upload Appium Logs
         if: always()
         uses: actions/upload-artifact@v4
