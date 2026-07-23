@@ -69,7 +69,9 @@ pipeline {
     agent any
 
     environment {
-        PATH = "/opt/homebrew/bin:/usr/local/bin:${env.PATH}"
+        ANDROID_HOME = "/Users/mithunkumarmishra/Library/Android/sdk"
+        ANDROID_SDK_ROOT = "/Users/mithunkumarmishra/Library/Android/sdk"
+        PATH = "/opt/homebrew/bin:/usr/local/bin:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/emulator:${env.PATH}"
     }
 
     parameters {
@@ -94,22 +96,26 @@ pipeline {
             }
         }
 
+        stage('Verify Android SDK') {
+            steps {
+                sh '''
+                which adb
+                which emulator
+                adb version
+                emulator -list-avds
+                '''
+            }
+        }
+
         stage('Start Android Emulator') {
             steps {
                 sh '''
-                echo "Starting Android Emulator..."
-
                 emulator -avd Pixel_4 > emulator.log 2>&1 &
-
                 adb wait-for-device
-
-                echo "Waiting for emulator to boot..."
 
                 while [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" != "1" ]; do
                     sleep 5
                 done
-
-                echo "Emulator Started Successfully"
 
                 adb devices
                 '''
@@ -119,10 +125,7 @@ pipeline {
         stage('Start Appium Server') {
             steps {
                 sh '''
-                echo "Starting Appium Server..."
-
                 appium > appium.log 2>&1 &
-
                 sleep 10
                 '''
             }
